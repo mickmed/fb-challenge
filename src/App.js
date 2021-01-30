@@ -6,6 +6,7 @@ import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
 import Shipping from "./Components/Shipping/Shipping";
 import ReviewOrder from "./Components/ReviewOrder/ReviewOrder";
+import Data from './Data/Data'
 
 import "./App.css";
 
@@ -13,6 +14,8 @@ function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [yAxis, setYAxis] = useState(0);
   const headerRef = useRef();
+
+  const [items, setItems] = useState()
 
   useEffect(() => {
     setHeaderHeight(headerRef.current.clientHeight);
@@ -22,9 +25,18 @@ function App() {
     };
   });
 
+  useEffect(()=>{
+    const getItems = async() => {
+      const resp = await Data
+      setItems(resp)
+    }
+  },[])
+
   const yVal = () => {
     setYAxis(window.pageYOffset);
   };
+
+
 
   return (
     <div className="App">
