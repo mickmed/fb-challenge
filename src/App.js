@@ -1,12 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
-import { Route } from 'react-router-dom';
-import Header from './Header';
-import Nav from './Nav'
-import Billing from './Billing';
-import Shipping from './Shipping'
-import ReviewOrder from './ReviewOrder';
+import { useState, useRef, useEffect } from "react";
+import { Route } from "react-router-dom";
+import Layout from './Shared/Layout'
+import Header from "./Components/Header/Header";
+import Nav from "./Components/Nav/Nav";
+import Billing from "./Components/Billing/Billing";
+import Shipping from "./Components/Shipping/Shipping";
+import ReviewOrder from "./Components/ReviewOrder/ReviewOrder";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -26,18 +27,20 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <Header headerRef={headerRef} />
-      <Nav yAxis={yAxis} headerHeight={headerHeight} />
-      <Route path='/shipping'>
-        <Shipping />
-      </Route>
-      <Route path='/billing'>
-        <Billing />
-      </Route>
-      <Route path='review-order'>
-        <ReviewOrder />
-      </Route>
+    <div className="App">
+      <Layout>
+        <Header headerRef={headerRef} />
+        <Nav yAxis={yAxis} headerHeight={headerHeight} />
+        <Route path="/shipping">
+          <Shipping />
+        </Route>
+        <Route path="/billing">
+          <Billing />
+        </Route>
+        <Route path="review-order">
+          <ReviewOrder />
+        </Route>
+      </Layout>
     </div>
   );
 }
