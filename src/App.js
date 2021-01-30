@@ -1,8 +1,12 @@
-import { useState, useRef, useEffect } from "react";
-import Header from "./Header.jsx";
-import Nav from "./Nav.jsx";
-import OrderReview from "./OrderReview.jsx";
-import "./App.css";
+import { useState, useRef, useEffect } from 'react';
+import { Route } from 'react-router-dom';
+import Header from './Header';
+import Nav from './Nav'
+import Billing from './Billing';
+import Shipping from './Shipping'
+import ReviewOrder from './ReviewOrder';
+
+import './App.css'
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -10,7 +14,7 @@ function App() {
   const headerRef = useRef();
 
   useEffect(() => {
-    setHeaderHeight(headerRef.current.clientHeight)
+    setHeaderHeight(headerRef.current.clientHeight);
     window.addEventListener("scroll", yVal);
     return () => {
       window.removeEventListener("scroll", yVal);
@@ -22,10 +26,18 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header headerRef={headerRef} />
-      <Nav yAxis={yAxis} headerHeight={headerHeight}/>
-      <OrderReview />
+      <Nav yAxis={yAxis} headerHeight={headerHeight} />
+      <Route path='/shipping'>
+        <Shipping />
+      </Route>
+      <Route path='/billing'>
+        <Billing />
+      </Route>
+      <Route path='review-order'>
+        <ReviewOrder />
+      </Route>
     </div>
   );
 }

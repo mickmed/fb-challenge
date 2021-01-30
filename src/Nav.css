@@ -1,13 +1,5 @@
 nav{
-    
-}
-
-nav ul{
-    padding:0;
     display:flex;
     justify-content: space-evenly;
+}
 
-}
-ul li{
-    list-style-type: none;
-}
