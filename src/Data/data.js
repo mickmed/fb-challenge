@@ -1,4 +1,4 @@
-const Items = [
+export const Items = [
   {
     name: "Long-Sleeve Shaker Cardigan Sweater",
     price: "5.98",
@@ -31,7 +31,7 @@ const Items = [
   },
 ];
 
-const Users = [
+export const Users = [
   {
     username: "Mary T.",
     email: "mary@mt.com",

@@ -6,7 +6,7 @@ import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
 import Shipping from "./Components/Shipping/Shipping";
 import ReviewOrder from "./Components/ReviewOrder/ReviewOrder";
-import { items, users } from './Shared/Data'
+import { Items, Users } from './Data/data.js'
 
 import "./App.css";
 
@@ -15,7 +15,7 @@ function App() {
   const [yAxis, setYAxis] = useState(0);
   const headerRef = useRef();
 
-  const [items, setItems] = useState()
+  const [order, setOrder] = useState([])
 
   useEffect(() => {
     setHeaderHeight(headerRef.current.clientHeight);
@@ -26,10 +26,12 @@ function App() {
   });
 
   useEffect(()=>{
+    console.log(Items)
     const getItems = async() => {
-      const resp = await Data
-      setItems(resp)
+      const resp = await Items
+      setOrder(resp)
     }
+    getItems()
   },[])
 
   const yVal = () => {
