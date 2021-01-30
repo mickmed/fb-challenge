@@ -1,16 +1,15 @@
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
 const Nav = (props) => {
   const { headerHeight, yAxis } = props;
-    console.log(headerHeight, yAxis)
+  console.log(headerHeight, yAxis);
   const style = { position: "sticky", top: 0 };
   return (
     <nav style={yAxis > headerHeight ? style : {}}>
-      <ul>
-        <li>Shipping</li>
-        <li>Billing</li>
-        <li>Review</li>
-      </ul>
+      <Link to='/shipping'>Shipping</Link>
+      <Link to='/billing'>Billing</Link>
+      <Link to='/review'>Review Order</Link>
     </nav>
   );
 };
