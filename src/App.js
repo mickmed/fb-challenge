@@ -6,7 +6,7 @@ import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
 import Shipping from "./Components/Shipping/Shipping";
 import ReviewOrder from "./Components/ReviewOrder/ReviewOrder";
-import Data from './Data/Data'
+import { items, users } from './Shared/Data'
 
 import "./App.css";
 

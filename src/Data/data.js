@@ -1,4 +1,4 @@
-[
+const Items = [
   {
     name: "Long-Sleeve Shaker Cardigan Sweater",
     price: "5.98",
@@ -28,5 +28,19 @@
     price: "5.98",
     "img-url":
       "https://cdn-fsly.yottaa.net/5ba91e43312e581893f90c9d/www.fullbeauty.com/v~4b.324/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_WomanWithin/default/dw0784fce1/images/on-hover/0037_34386_ma_0001.jpg?sw=240&sh=346&sm=fit&yocs=1_6_",
+  },
+];
+
+const Users = [
+  {
+    username: "Mary T.",
+    email: "mary@mt.com",
+    address: {
+      street: "7 Ocean Stream Way",
+      zipcode: "12345",
+      city: "Homesville",
+      state: "MN",
+      country: "USA",
+    },
   },
 ];
