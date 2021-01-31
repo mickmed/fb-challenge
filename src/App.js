@@ -34,7 +34,6 @@ function App() {
       setOrder(orderResp);
     };
     getUser();
-    
   }, []);
 
   const yVal = () => {
@@ -46,6 +45,9 @@ function App() {
       <Header headerRef={headerRef} />
       <Nav yAxis={yAxis} headerHeight={headerHeight} />
       <Layout>
+        <Route exact path="/">
+          <Shipping user={user} />
+        </Route>
         <Route path="/shipping">
           <Shipping user={user} />
         </Route>

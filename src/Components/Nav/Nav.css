@@ -1,5 +1,14 @@
-nav{
-    display:flex;
-    justify-content: space-evenly;
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background: sandybrown;
+	min-height: 7vh;
 }
-
+nav .selected {
+	color: "red";
+	font-weight: "bold";
+}
+a {
+	text-decoration: none;
+}

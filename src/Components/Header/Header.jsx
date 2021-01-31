@@ -3,7 +3,7 @@ const Header = (props) => {
   
   return (
     <header ref={props.headerRef}>
-      <h1 className="main-header">Brand o' Brands</h1>
+      <h1 className="main-header">Brand o' Brands Stationary</h1>
     
     </header>
   );

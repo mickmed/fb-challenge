@@ -17,7 +17,7 @@
   margin:2em;
   width:20vw;
 }
-.selected{
+.order .selected{
   background:rosybrown;
   transform:scale(1.5);
 }

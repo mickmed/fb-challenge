@@ -1,6 +1,8 @@
 header{
-    background: lightblue;
+    background:lightblue url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NjR8fGNvbG9yZWQlMjBwZW5jaWxzfGVufDB8fDB8&auto=format&fit=crop&w=500&q=60');
+    background-position: right;
     margin-top:0;
+    min-height:30vh;
 }
 h1{
     margin-top:0;
