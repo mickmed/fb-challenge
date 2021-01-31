@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-const ReviewOrder = () => {
+const OrderReview = () => {
   useEffect(() => {});
 
   return <div>Review Order</div>;
 };
 
-export default ReviewOrder;
+export default OrderReview;
