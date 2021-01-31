@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
 import Shipping from "./Components/Shipping/Shipping";
-import ReviewOrder from "./Components/ReviewOrder/ReviewOrder";
+import OrderReview from "./Components/OrderReview/OrderReview";
 import { User, Order } from './Data/data.js'
 
 import "./App.css";
@@ -56,8 +56,8 @@ function App() {
         <Route path="/billing">
           <Billing user={user} />
         </Route>
-        <Route path="review-order">
-          <ReviewOrder />
+        <Route path="order-review">
+          <OrderReview/>
         </Route>
       </Layout>
     </div>
