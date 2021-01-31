@@ -6,15 +6,37 @@ const OrderReview = (props) => {
 
   const [quantity, setQuantity] = useState([]);
   const [total, setTotal] = useState([]);
+  const [discount, setDiscount] = useState([])
 
   const counter = (e, id, price) => {
+    let { value } = e.target;
     setQuantity((prev) => {
-      prev[id] = parseInt(e.target.value);
+      prev[id] = parseInt(value);
       return [...prev];
     });
     setTotal((prev) => {
-      prev[id] = parseInt(e.target.value * price)
-      return [...prev]
+      if (quantity[id] > 1 && id === 0) {
+        if (quantity[id] % 2 === 0) {
+          prev[id] = parseInt(value * 50);
+        } else {
+          prev[id] = parseInt((value - 1) * 50) + price;
+        }
+      } else {
+        prev[id] = parseInt(value * price);
+      }
+      return [...prev];
+    });
+    setDiscount((prev) => {
+      if (quantity[id] > 1 && id === 0) {
+        if (quantity[id] % 2 === 0) {
+          prev[id] = 10 * value;
+        } else {
+          prev[id] = 10 * (value -1);
+        }
+      } else {
+        prev[id] = parseInt(value * price);
+      }
+      return [...prev];
     })
   };
 
@@ -30,7 +52,6 @@ const OrderReview = (props) => {
           <h3 className="qty">quantity</h3>
           <h3 className="discount">discount</h3>
           <h3 className="total">total</h3>
-
         </div>
         <section className="items">
           {props.order.map((item, index) => (
@@ -52,10 +73,10 @@ const OrderReview = (props) => {
                 />
               </div>
               <div className="discount">
-                <h4>%</h4>
+                <h4>{discount[index]}</h4>
               </div>
               <div className="total">
-                <input type='text' name='total' value={quantity[index] * item.price || 0}/>
+                <input type="text" name="total" value={total[index] || 0} />
               </div>
             </div>
           ))}
