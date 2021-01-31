@@ -9,7 +9,7 @@ const Nav = (props) => {
     <nav style={yAxis > headerHeight ? style : {}}>
       <Link to='/shipping'>Shipping</Link>
       <Link to='/billing'>Billing</Link>
-      <Link to='/review'>Review Order</Link>
+      <Link to='/order-review'>Order</Link>
     </nav>
   );
 };

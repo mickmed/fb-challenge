@@ -5,7 +5,7 @@ const Billing = (props) => {
   const { user } = props;
 
   return (
-    <content className="billing">
+    <section className="billing">
       <h3>Billing</h3>{" "}
       {user.address && (
         <div className="content">
@@ -21,7 +21,7 @@ const Billing = (props) => {
             </section>
         </div>
       )}
-    </content>
+    </section>
   );
 };
 
