@@ -1,9 +1,20 @@
 .order {
   background: rgb(232, 249, 250);
-  padding: 1em;
+  padding: 1em 2em;
   box-sizing: border-box;
 }
-
+ /* h6{
+    margin:1em;
+} */
+.menu{
+    display:flex;
+    justify-content: space-between;
+}
+.buttons{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 .header,
 .item {
   display: flex;
@@ -23,10 +34,18 @@
 }
 
 .qty {
-  width: 3vw;
+  width: 7vw;
   text-align: right;
 }
 
 input{
     width:3vw;
+}
+
+.discount{
+    width:10vw;
+    text-align:right;
+}
+.total{
+    width:5vw;
 }

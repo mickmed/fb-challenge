@@ -2,50 +2,80 @@ import { useState, useEffect } from "react";
 import "./OrderReview.css";
 
 const OrderReview = (props) => {
-  useEffect(() => {});
-
-  const [quantity, setQuantity] = useState([]);
+  const [quantity, setQuantity] = useState([0, 0, 0, 0]);
   const [total, setTotal] = useState([]);
-  const [discount, setDiscount] = useState([])
+  const [discount, setDiscount] = useState([]);
+
+  const [scenario1] = useState(["A", "A", "B", "C", "C", "D"]);
+  const [scenario2] = useState(["A", "A", "A", "A", "A", "B", "B", "C", "D"]);
+  const [selected, setSelected] = useState("scenario1");
+
+  useEffect(() => {
+    const quantities = {};
+    const arr = selected === "scenario1" ? scenario1 : scenario2;
+
+    for (let i = 0; i < arr.length; i++) {
+      let key = arr[i];
+      quantities[key] = quantities[key] ? quantities[key] + 1 : 1;
+    }
+    setQuantity(Object.values(quantities));
+  }, [selected]);
 
   const counter = (e, id, price) => {
-    let { value } = e.target;
+    let qty = e.target.valueAsNumber;
+
     setQuantity((prev) => {
-      prev[id] = parseInt(value);
-      return [...prev];
+      if (qty > 1 && id === 1 && qty) {
+        if (qty % 2 === 0) {
+          prev[id] = qty + qty / 2;
+        } else {
+          prev[id] = qty + (qty - 1) / 2;
+        }
+
+        return [...prev];
+      } else {
+        prev[id] = qty;
+        return [...prev];
+      }
     });
     setTotal((prev) => {
-      if (quantity[id] > 1 && id === 0) {
-        if (quantity[id] % 2 === 0) {
-          prev[id] = parseInt(value * 50);
+      if (qty > 1 && id === 0) {
+        if (qty % 2 === 0) {
+          prev[id] = qty * 50;
         } else {
-          prev[id] = parseInt((value - 1) * 50) + price;
+          prev[id] = (qty - 1) * 50 + price;
         }
+      } else if (qty > 1 && id === 1) {
+        prev[id] = qty * price;
       } else {
-        prev[id] = parseInt(value * price);
+        prev[id] = qty * price;
       }
       return [...prev];
     });
     setDiscount((prev) => {
-      if (quantity[id] > 1 && id === 0) {
-        if (quantity[id] % 2 === 0) {
-          prev[id] = 10 * value;
+      if (qty > 1 && id === 0) {
+        if (qty % 2 === 0) {
+          prev[id] = 10 * qty;
         } else {
-          prev[id] = 10 * (value -1);
+          prev[id] = 10 * (qty - 1);
         }
       } else {
-        prev[id] = parseInt(value * price);
+        prev[id] = parseInt(qty * price);
       }
       return [...prev];
-    })
+    });
   };
 
   return (
     <div className="order-review">
       <h3>Order Review</h3>
       <div className="order">
+        <div className="menu">
         <h6>Please review your order</h6>
-
+        <div className="buttons">
+          <button onClick={() => setSelected("scenario1")}>Scenario 1</button>
+          <button onClick={() => setSelected("scenario2")}>Scenario 2</button>
+        </div></div>
         <div className="header">
           <h3 className="name">item</h3>
           <h3 className="price">price</h3>
@@ -66,7 +96,8 @@ const OrderReview = (props) => {
               </div>
               <div className="qty">
                 <input
-                  type="text"
+                  type="number"
+                  min="0"
                   name={`quantity ${index}`}
                   value={quantity[index] || 0}
                   onChange={(e) => counter(e, index, item.price)}
@@ -76,7 +107,7 @@ const OrderReview = (props) => {
                 <h4>{discount[index]}</h4>
               </div>
               <div className="total">
-                <input type="text" name="total" value={total[index] || 0} />
+                <div>{total[index] || 0}</div>
               </div>
             </div>
           ))}
