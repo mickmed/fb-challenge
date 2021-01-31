@@ -4,6 +4,7 @@ import Layout from "./Shared/Layout";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
+import BillingEdit from './Components/Billing/BillingEdit'
 import Shipping from "./Components/Shipping/Shipping";
 import OrderReview from "./Components/OrderReview/OrderReview";
 import { User, Order } from "./Data/data.js";
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/billing">
           <Billing user={user} />
+        </Route>
+        <Route path="/billing-edit">
+          <BillingEdit user={user} />
         </Route>
         <Route path="/order-review">
           <OrderReview user={user} order={order} />
