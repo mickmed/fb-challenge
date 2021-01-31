@@ -18,13 +18,15 @@ export const calcTotals = (prev, qty, id, price) => {
 };
 
 export const calcDiscounts = (prev, qty, id, price) => {
+    console.log(id, qty)
   if (id === 0 && qty > 1) {
     if (qty % 2 === 0) {
       prev[id] = 10 * qty;
     } else {
       prev[id] = 10 * (qty - 1);
     }
-  } else if (id === 1 && qty > 1) {
+  } else if (id === 1) {
+     
     if (qty % 2 === 0) {
       console.log(qty);
 

@@ -13,7 +13,13 @@
 .buttons {
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+  justify-content: space-around;
+  margin:2em;
+  width:20vw;
+}
+.selected{
+  background:rosybrown;
+  transform:scale(1.5);
 }
 .header,
 .item {
@@ -26,32 +32,33 @@
 	justify-content: flex-start;
 	width: 25vw;
 }
+.price, .discount, .total{
+  width: 6vw;
+  text-align:right;
+}
 .price {
 	display: flex;
 	justify-content: flex-end;
-	width: 10vw;
+	
 }
 .qty {
 	display: flex;
 	/* flex-direction: column; */
   justify-content: center;
   align-items: center;
-	width: 7vw;
+	width: 10vw;
 	text-align: right;
 }
 input {
 	width: 3vw;
 }
 .two-for-one {
-	display: flex;
+	visibility: hidden;
 	justify-content: flex-end;
-	width: 5vw;
+  width: 3vw;
+  
 }
-.discount {
-	width: 7vw;
-	text-align: right;
+.show{
+  visibility:visible;
 }
-.total {
-  width: 5vw;
-  text-align:right;
-}
+
