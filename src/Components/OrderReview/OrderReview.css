@@ -1,0 +1,32 @@
+.order {
+  background: rgb(232, 249, 250);
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.header,
+.item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.name {
+  width: 25vw;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.price {
+  display: flex;
+  justify-content: flex-end;
+  width: 10vw;
+}
+
+.qty {
+  width: 3vw;
+  text-align: right;
+}
+
+input{
+    width:3vw;
+}
