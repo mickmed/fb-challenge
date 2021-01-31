@@ -1,69 +1,52 @@
 import { useState, useEffect } from "react";
+import {
+  calcQuantities,
+  calcTotals,
+  calcDiscounts,
+  calcTwoForOne,
+} from "../Helpers";
 import "./OrderReview.css";
 
 const OrderReview = (props) => {
   const [quantity, setQuantity] = useState([0, 0, 0, 0]);
   const [total, setTotal] = useState([]);
   const [discount, setDiscount] = useState([]);
-
+  const [twoForOne, setTwoForOne] = useState(0);
   const [scenario1] = useState(["A", "A", "B", "C", "C", "D"]);
   const [scenario2] = useState(["A", "A", "A", "A", "A", "B", "B", "C", "D"]);
   const [selected, setSelected] = useState("scenario1");
+  const { order, user } = props;
 
   useEffect(() => {
-    const quantities = {};
+    //count scenario items
     const arr = selected === "scenario1" ? scenario1 : scenario2;
-
+    const quantities = {};
     for (let i = 0; i < arr.length; i++) {
       let key = arr[i];
       quantities[key] = quantities[key] ? quantities[key] + 1 : 1;
     }
     setQuantity(Object.values(quantities));
-  }, [selected]);
+
+    //calc scenario totals and discounts
+    order.length !== 0 &&
+      Object.values(quantities).forEach((qty, index) => {
+        let price = order[index].price;
+        console.log(qty);
+        setTotal((prev) => calcTotals(prev, qty, index, price));
+        setDiscount((prev) => calcDiscounts(prev, qty, index, price));
+      });
+  }, [selected, order]);
 
   const counter = (e, id, price) => {
     let qty = e.target.valueAsNumber;
-
     setQuantity((prev) => {
-      if (qty > 1 && id === 1 && qty) {
-        if (qty % 2 === 0) {
-          prev[id] = qty + qty / 2;
-        } else {
-          prev[id] = qty + (qty - 1) / 2;
-        }
+      prev[id] = qty;
 
-        return [...prev];
-      } else {
-        prev[id] = qty;
-        return [...prev];
-      }
-    });
-    setTotal((prev) => {
-      if (qty > 1 && id === 0) {
-        if (qty % 2 === 0) {
-          prev[id] = qty * 50;
-        } else {
-          prev[id] = (qty - 1) * 50 + price;
-        }
-      } else if (qty > 1 && id === 1) {
-        prev[id] = qty * price;
-      } else {
-        prev[id] = qty * price;
-      }
       return [...prev];
     });
-    setDiscount((prev) => {
-      if (qty > 1 && id === 0) {
-        if (qty % 2 === 0) {
-          prev[id] = 10 * qty;
-        } else {
-          prev[id] = 10 * (qty - 1);
-        }
-      } else {
-        prev[id] = parseInt(qty * price);
-      }
-      return [...prev];
-    });
+    setTotal((prev) => calcTotals(prev, qty, id, price));
+    setDiscount((prev) => calcDiscounts(prev, qty, id, price));
+    id === 1 && setTwoForOne((prev) => calcTwoForOne(prev, qty));
   };
 
   return (
@@ -71,11 +54,12 @@ const OrderReview = (props) => {
       <h3>Order Review</h3>
       <div className="order">
         <div className="menu">
-        <h6>Please review your order</h6>
-        <div className="buttons">
-          <button onClick={() => setSelected("scenario1")}>Scenario 1</button>
-          <button onClick={() => setSelected("scenario2")}>Scenario 2</button>
-        </div></div>
+          <h6>Please review your order</h6>
+          <div className="buttons">
+            <button onClick={() => setSelected("scenario1")}>Scenario 1</button>
+            <button onClick={() => setSelected("scenario2")}>Scenario 2</button>
+          </div>
+        </div>
         <div className="header">
           <h3 className="name">item</h3>
           <h3 className="price">price</h3>
@@ -84,8 +68,8 @@ const OrderReview = (props) => {
           <h3 className="total">total</h3>
         </div>
         <section className="items">
-          {props.order.map((item, index) => (
-            <div className="item">
+          {order.map((item, index) => (
+            <div className="item" key={index}>
               {/* <img src={item.imgUrl} /> */}
 
               <div className="name">
@@ -102,6 +86,9 @@ const OrderReview = (props) => {
                   value={quantity[index] || 0}
                   onChange={(e) => counter(e, index, item.price)}
                 />
+                <div className="two-for-one">
+                  {index === 1 && `+ ${twoForOne}`}
+                </div>
               </div>
               <div className="discount">
                 <h4>{discount[index]}</h4>

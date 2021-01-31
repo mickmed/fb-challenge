@@ -30,13 +30,11 @@ function App() {
     const getUser = async () => {
       const resp = await User;
       setUser(resp[0]);
+      const orderResp = await Order;
+      setOrder(orderResp);
     };
     getUser();
-    const getOrder = async () => {
-      const resp = await Order;
-      setOrder(resp);
-    };
-    getOrder();
+    
   }, []);
 
   const yVal = () => {
