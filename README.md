@@ -8,7 +8,7 @@ Welcome to the FB-Challenge
 
 
 ### Summary
-- The user can choose between two preset scenarios indicating different quantities for each item. They are represented as ```scenario1``` and ```scenario2```. Each input box is preloaded respectively, and the quantity of each item can be changed accordingly. If changes are made the  ```two for 100``` and ```buy 2 get 1 free``` features are automatically implemented. The corresponding calculations are made for ```discounts```, ```totals```, and the ```order total```. Please see the deployed version below.
+- The user can choose between two preset scenarios indicating different quantities for each item. They are represented as ```scenario1``` and ```scenario2```. Each input box is preloaded respectively, and the quantity of each item can be changed accordingly. If changes are made the  ```two for 100``` and ```buy 2 get 1 free``` features are automatically implemented. The corresponding calculations are made for ```discounts```, ```totals```, and the ```order total```. Please see the deployed version below. The quantity column for ```buy 2 get 1 free``` has an additional entry to the right which prints the number of free items the buyer will get!!!
 
 ### Deployed 
 - [Live Example](https://fb-challenge.netlify.app/)
