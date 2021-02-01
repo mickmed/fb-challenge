@@ -1,6 +1,12 @@
 ### Challenge
 
+Welcome to the FB-Challenge 
+- assigned 1/28 @ 5pm
+- due 2/1 @ 9am
+- delivered 2/1 @ 9am
 
+#### Challenge Directions
+```
 Create an order review page with two headers
 
 ·  First header has the brand name and image. The header disappears as you scroll down the page
@@ -31,3 +37,6 @@ Assume items in the order are
 // B | 70 | Buy 2 get 1 free
 // C | 10 | -
 // D | 20 | -
+
+```
+

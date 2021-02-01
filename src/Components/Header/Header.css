@@ -3,6 +3,8 @@ header{
     background-position: right;
     margin-top:0;
     min-height:30vh;
+    padding:1em;
+    box-sizing: border-box;
 }
 h1{
     margin-top:0;

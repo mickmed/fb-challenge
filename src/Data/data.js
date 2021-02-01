@@ -1,35 +1,35 @@
 export const Order = [
   {
     alphaIndex: "A",
-    name: "Long-Sleeve Shaker Cardigan Sweater(A)",
+    name: "(A) Super Rare Diary of Tomorrow",
     price: 60,
     imgUrl:
-      "https://cdn-fsly.yottaa.net/5ba91e43312e581893f90c9d/www.fullbeauty.com/v~4b.324/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_WomanWithin/default/dw5d92cf16/images/hi-res/0056_13682_mc_1147.jpg?sw=240&sh=346&sm=fit&yocs=1_6_",
+      "https://images.unsplash.com/photo-1509528640600-be205362320b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1496&q=80",
   },
   {
     alphaIndex: "B",
-    name: "Embellished Drape Tunic(B)",
+    name: "(B) Sixty Tube Golden Paint Set",
     price: 70,
     imgUrl:
-      "https://cdn-fsly.yottaa.net/5ba91e43312e581893f90c9d/www.fullbeauty.com/v~4b.324/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Roamans/default/dweb3a7c8b/images/hi-res/0537_16778_mc_8350.jpg?sw=240&sh=346&sm=fit&yocs=1_6_",
+      "https://images.unsplash.com/photo-1601520528085-c973ad2f73f3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBhaW50fGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
   },
   {
     alphaIndex: "C",
-    name: "Embroided Knit Tunic(C)",
+    name: "(C) Eight Piece Colored Pencil Set",
     price: 10,
     imgUrl:
-      "https://cdn-fsly.yottaa.net/5ba91e43312e581893f90c9d/www.fullbeauty.com/v~4b.324/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_WomanWithin/default/dwcbbd4cc9/images/on-hover/0007_19498_ma_0001.jpg?sw=240&sh=346&sm=fit&yocs=1_6_",
+      "https://images.unsplash.com/photo-1609700504129-203bf7fb4c67?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
   },
   {
     alphaIndex: "D",
-    name: "Camp Rose Pleat-Neck Tank(D)",
+    name: "(D) German Steel Protractor",
     price: 20,
     imgUrl:
-      "https://cdn-fsly.yottaa.net/5ba91e43312e581893f90c9d/www.fullbeauty.com/v~4b.324/dw/image/v2/BBKT_PRD/on/demandware.static/-/Sites-masterCatalog_Catherines/default/dw81c2f755/images/on-hover/2642_26343_ma_0001.jpg?sw=240&sh=346&sm=fit&yocs=1_6_",
+      "https://images.unsplash.com/photo-1416339158484-9637228cc908?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80",
   },
 ];
 
-export const User = [
+export const User = 
   {
     username: "Mary T.",
     email: "mary@mt.com",
@@ -43,7 +43,7 @@ export const User = [
     billing: {
       card: {
         cardNum: "123456789",
-        cardType: "supercard",
+        cardType: "Supercard",
       },
       address: {
         street: "7 Ocean Stream Way",
@@ -53,5 +53,5 @@ export const User = [
         country: "USA",
       },
     },
-  },
-];
+  }
+
