@@ -13,7 +13,11 @@ Welcome to the FB-Challenge
 ### Deployed 
 - [Live Example](https://fb-challenge.netlify.app/)
 
-
+### Technologies
+- React
+- HTML
+- CSS
+  
 ### Component Heirarchy
 
 <details>
