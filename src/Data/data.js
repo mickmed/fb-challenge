@@ -1,7 +1,7 @@
 export const Order = [
   {
     alphaIndex: "A",
-    name: "(A) Super Rare Diary of Tomorrow(A)",
+    name: "(A) Super Rare Diary of Tomorrow",
     price: 60,
     imgUrl:
       "https://images.unsplash.com/photo-1509528640600-be205362320b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1496&q=80",
