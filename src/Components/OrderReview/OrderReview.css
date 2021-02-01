@@ -1,11 +1,12 @@
 .order {
 	box-sizing: border-box;
-	background: rgb(232, 249, 250);
+	opacity: 0.95;
+	z-index: 1;
+	background: rgb(252, 248, 245);
 	padding: 1em 2em;
+	box-shadow:1px 1px 3px black;
+	
 }
-/* h6{
-    margin:1em;
-} */
 .menu {
 	display: flex;
 	justify-content: space-between;
@@ -13,39 +14,53 @@
 .buttons {
 	display: flex;
 	align-items: center;
-  justify-content: space-around;
-  margin:2em;
-  width:20vw;
+	justify-content: space-around;
+	/* margin: 1em; */
+	width: 30vw;
 }
-.order .selected{
-  background:rosybrown;
-  transform:scale(1.5);
+button {
+	width: 40%;
+}
+.selected{
+	background:rgb(238, 249, 250);
+	border:rgb(236, 236, 236) 5px 5px solid;
+	padding:.5em
+}
+.items{
+	border:1px solid black;
 }
 .header,
 .item {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	font-family: "Assistant", sans-serif;
+}
+.item:nth-child(2n + 1) {
+	background: rgb(238, 249, 250);
+}
+.item:nth-child(2n) {
+	background: rgb(236, 236, 236);
 }
 .name {
 	display: flex;
 	justify-content: flex-start;
 	width: 25vw;
 }
-.price, .discount, .total{
-  width: 6vw;
-  text-align:right;
+.price,
+.discount,
+.total {
+	width: 6vw;
+	text-align: right;
 }
 .price {
 	display: flex;
 	justify-content: flex-end;
-	
 }
 .qty {
 	display: flex;
-	/* flex-direction: column; */
-  justify-content: center;
-  align-items: center;
+	align-items: center;
+	justify-content: center;
 	width: 10vw;
 	text-align: right;
 }
@@ -53,12 +68,39 @@ input {
 	width: 3vw;
 }
 .two-for-one {
-	visibility: hidden;
 	justify-content: flex-end;
-  width: 3vw;
-  
+	visibility: hidden;
+	width: 3vw;
 }
-.show{
-  visibility:visible;
+.show {
+	visibility: visible;
 }
-
+.totals {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	/* background: rgb(240, 253, 252); */
+	/* padding: 0 1em; */
+	height: 15vh;
+}
+.totals > div,
+.summary {
+	box-sizing: border-box;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	margin: .5em;
+	border-radius: 5px;
+	/* background: rgb(246, 246, 252); */
+	background:white;
+	padding: 1em;
+	width: 20%;
+	height: 80%;
+	border:1px solid black;
+}
+.summary {
+	flex-direction: column;
+}
+.summary div{
+	padding-top:1em;
+}

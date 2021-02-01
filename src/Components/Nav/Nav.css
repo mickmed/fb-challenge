@@ -4,6 +4,7 @@ nav {
 	justify-content: space-evenly;
 	background: sandybrown;
 	min-height: 7vh;
+	z-index:1;
 }
 nav .selected {
 	color: "red";

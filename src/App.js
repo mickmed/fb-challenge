@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import Layout from "./Shared/Layout";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Billing from "./Components/Billing/Billing";
-import BillingEdit from './Components/Billing/BillingEdit'
+import BillingEdit from "./Components/Billing/BillingEdit";
 import Shipping from "./Components/Shipping/Shipping";
 import OrderReview from "./Components/OrderReview/OrderReview";
 import { User, Order } from "./Data/data.js";
@@ -16,8 +16,9 @@ function App() {
   const [yAxis, setYAxis] = useState(0);
   const headerRef = useRef();
 
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [order, setOrder] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     setHeaderHeight(headerRef.current.clientHeight);
@@ -30,7 +31,7 @@ function App() {
   useEffect(() => {
     const getUser = async () => {
       const resp = await User;
-      setUser(resp[0]);
+      setUser(resp);
       const orderResp = await Order;
       setOrder(orderResp);
     };
@@ -39,6 +40,25 @@ function App() {
 
   const yVal = () => {
     setYAxis(window.pageYOffset);
+  };
+
+  const handleChange = async (e) => {
+    const { id, value } = e.target;
+    id === "username" &&
+      (await setUser({
+        ...user,
+        [id]: id === "username" && value,
+        billing: {
+          address: {
+            [id]:
+              id === "street" || id === "state" || (id === "zipcode" && value),
+          },
+        },
+      }));
+  };
+
+  const handleSubmit = async (e) => {
+    history.push("/");
   };
 
   return (
@@ -56,7 +76,11 @@ function App() {
           <Billing user={user} />
         </Route>
         <Route path="/billing-edit">
-          <BillingEdit user={user} />
+          <BillingEdit
+            user={user}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
         </Route>
         <Route path="/order-review">
           <OrderReview user={user} order={order} />

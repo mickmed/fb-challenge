@@ -18,6 +18,8 @@ const OrderReview = (props) => {
   const [grandTotal, setGrandTotal] = useState();
   const { order, user } = props;
 
+
+
   useEffect(() => {
     //count scenario items
     const arr = selected === "scenario1" ? scenario1 : scenario2;
@@ -30,10 +32,11 @@ const OrderReview = (props) => {
 
     //calc scenario totals and discounts
     order.length !== 0 &&
-      Object.values(quantities).forEach((qty, index) => {
+      Object.values(qty).forEach((qty, index) => {
         let price = order[index].price;
         setTotals((prev) => calcTotals(prev, qty, index, price));
         setDiscounts((prev) => calcDiscounts(prev, qty, index, price));
+        index === 1 && setTwoForOne((prev) => calcTwoForOne(prev, qty));
       });
   }, [selected, order]);
 
@@ -54,7 +57,7 @@ const OrderReview = (props) => {
       <h3>Order Review</h3>
       <div className="order">
         <div className="menu">
-          <h6>Please review your order</h6>
+          <h6>Hi {user.username}, please review your order</h6>
           <div className="buttons">
             <button
               onClick={() => setSelected("scenario1")}
@@ -108,14 +111,21 @@ const OrderReview = (props) => {
               </div>
             </div>
           ))}
-          <div>Total{totals.length && totals.reduce((a, b) => a + b)}</div>
-          <div>
-            Discounts{discounts.length && discounts.reduce((a, b) => a + b)}
+        </section>
+
+        <section className="totals">
+          <div className='summary'>
+            <div >
+              Discounts: &nbsp;{discounts.length && discounts.reduce((a, b) => a + b)}
+            </div>
+            <div>
+              Items: {quantities.length && quantities.reduce((a, b) => a + b)}
+            </div>
+            <div>Bonus Items: &nbsp;{twoForOne}</div>
           </div>
           <div>
-            Items{quantities.length && quantities.reduce((a, b) => a + b)}
+            <div>Total: &nbsp;{totals.length && totals.reduce((a, b) => a + b)}</div>
           </div>
-          <div>Bonus Items{twoForOne}</div>
         </section>
       </div>
     </div>
