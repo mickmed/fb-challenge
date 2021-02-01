@@ -1,4 +1,4 @@
-### Challenge
+### FB-Challenge
 
 Welcome to the FB-Challenge
 
@@ -34,7 +34,7 @@ Shipping  Billing  OrderReview
 
 
 ### Notes
-- The most enjoyable part of the challenge was calculating the discounts and totals for the 'A' and 'B' items, i,e., ```buy 2 for 100``` and ```buy 2 get 1 free```. The code for this can be seen in the [Helpers/index.js](/src/Components/Helpers/index.js) and the [Order-Review.jsx](/src/Components/OrderReview/OrderReview.jsx) files.
+- The most enjoyable part of the challenge was calculating the discounts and totals for the 'A' and 'B' items, i,e., ```buy 2 for 100``` and ```buy 2 get 1 free```. The code for this can be seen in the [Helpers/index.js](/src/Components/Helpers/index.js) and the [Order-Review.jsx](/src/Components/OrderReview/OrderReview.jsx) files. To see the JS Object that contains the data please see [data.js](/src/Data/data.js).
 
 ![demo](demo.gif)
 
