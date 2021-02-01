@@ -1,106 +1,168 @@
 .order {
-	box-sizing: border-box;
-	opacity: 0.95;
-	z-index: 1;
-	background: rgb(252, 248, 245);
-	padding: 1em 2em;
-	box-shadow:1px 1px 3px black;
-	
+  box-sizing: border-box;
+  opacity: 0.95;
+  z-index: 1;
+  box-shadow: 1px 1px 3px black;
+  background: rgb(252, 248, 245);
+  padding: 1em 2em;
 }
 .menu {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .buttons {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	/* margin: 1em; */
-	width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 30vw;
 }
 button {
-	width: 40%;
+  border: 1px solid;
+  padding: 0;
+  width: 40%;
+  font-size: 0.5em;
 }
-.selected{
-	background:rgb(238, 249, 250);
-	border:rgb(236, 236, 236) 5px 5px solid;
-	padding:.5em
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
 }
-.items{
-	border:1px solid black;
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.selected {
+  border: rgb(236, 236, 236) 5px 5px solid;
+  border-radius: 5px;
+  background: rgb(238, 249, 250);
+  padding: 0.5em;
+}
+.items {
+  border: 1px solid black;
+  padding: 0.5em;
+  box-sizing: border-box;
 }
 .header,
 .item {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	font-family: "Assistant", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Assistant", sans-serif;
+  font-size: 0.6em;
 }
 .item:nth-child(2n + 1) {
-	background: rgb(238, 249, 250);
+  background: rgb(238, 249, 250);
 }
 .item:nth-child(2n) {
-	background: rgb(236, 236, 236);
+  background: rgb(236, 236, 236);
 }
 .name {
-	display: flex;
-	justify-content: flex-start;
-	width: 25vw;
+  display: flex;
+  justify-content: flex-start;
+  width: 25vw;
 }
 .price,
 .discount,
 .total {
-	width: 6vw;
-	text-align: right;
+  width: 6vw;
+  text-align: right;
 }
 .price {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 .qty {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 10vw;
-	text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  text-align: right;
 }
 input {
-	width: 3vw;
+  width: 3vw;
+  text-align: right;
+  font-size: 1em;
 }
 .two-for-one {
-	justify-content: flex-end;
-	visibility: hidden;
-	width: 3vw;
+  justify-content: flex-end;
+  visibility: hidden;
+  width: 3vw;
 }
 .show {
-	visibility: visible;
+  visibility: visible;
 }
 .totals {
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-end;
-	/* background: rgb(240, 253, 252); */
-	/* padding: 0 1em; */
-	height: 15vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 15vh;
 }
 .totals > div,
 .summary {
-	box-sizing: border-box;
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-end;
-	margin: .5em;
-	border-radius: 5px;
-	/* background: rgb(246, 246, 252); */
-	background:white;
-	padding: 1em;
-	width: 20%;
-	height: 80%;
-	border:1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0.5em;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+  padding: 1em;
+  width: 50%;
+  height: 80%;
+  font-size: 0.6em;
+  flex-direction: column;
 }
+.total-price {
+  display: flex;
+}
+
 .summary {
-	flex-direction: column;
+  flex-direction: column;
 }
-.summary div{
-	padding-top:1em;
+.summary > div,
+.total-price > div {
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media only screen and (min-width: 600px) {
+  .header,
+  .item {
+    font-size: 1em;
+  }
+  button {
+    font-size: 0.8em;
+  }
+  .totals > div,
+  .summary {
+    font-size: 0.8em;
+  }
+  input{
+	  width:6vw;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: normal;
+  }
+  input[type="number"] {
+    -moz-appearance: none;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .header,
+  .item {
+    font-size: 1.5em;
+  }
+  button {
+    font-size: 1em;
+  }
+  .totals > div,
+  .summary {
+    font-size: 0.9em;
+    height: 12vh;
+  }
 }

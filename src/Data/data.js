@@ -31,7 +31,7 @@ export const Order = [
 
 export const User = 
   {
-    username: "Mary T.",
+    username: "Mary T. Example",
     email: "mary@mt.com",
     address: {
       street: "7 Ocean Stream Way",

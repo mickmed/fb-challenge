@@ -1,40 +1,52 @@
 .billing {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	
-
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .billing > div {
-	display: flex;
-	padding: 2em;
-	background:rgb(252, 248, 245);
-	box-shadow:1px 1px 3px black;
+  display: flex;
+  padding: 2em;
+  background: rgb(252, 248, 245);
+  box-shadow: 1px 1px 3px black;
+  flex-direction: column;
 }
 .billing div img {
-	flex: 1;
-	padding: 2em;
-	width: 30%;
+  flex: 1;
+  padding: 2em;
+  width: 30%;
 }
 div.content {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	padding: 2em;
-	font-size: 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 2em;
+  font-size: 1em;
 }
 
 .card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid black;
-	background: white;
-	padding:1em;
-	box-sizing:border-box;
-	margin:2em 0;
-	border-radius:5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background: white;
+  padding: 1em;
+  box-sizing: border-box;
+  margin: 2em 0;
+  border-radius: 5px;
+}
+@media only screen and (min-width: 600px) {
+  div.content {
+    font-size: 1.5em;
+  }
+  .billing > div {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 900px) {
+  div.content {
+    font-size: 2em;
+  }
 }

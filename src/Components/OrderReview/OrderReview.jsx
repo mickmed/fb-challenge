@@ -15,10 +15,7 @@ const OrderReview = (props) => {
   const [scenario1] = useState(["A", "A", "B", "C", "C", "D"]);
   const [scenario2] = useState(["A", "A", "A", "A", "A", "B", "B", "C", "D"]);
   const [selected, setSelected] = useState("scenario1");
-  const [grandTotal, setGrandTotal] = useState();
   const { order, user } = props;
-
-
 
   useEffect(() => {
     //count scenario items
@@ -51,7 +48,6 @@ const OrderReview = (props) => {
     setDiscounts((prev) => calcDiscounts(prev, qty, id, price));
     id === 1 && setTwoForOne((prev) => calcTwoForOne(prev, qty));
   };
-
   return (
     <div className="order-review">
       <h3>Order Review</h3>
@@ -81,50 +77,77 @@ const OrderReview = (props) => {
           <h3 className="total">total</h3>
         </div>
         <section className="items">
-          {order.map((item, index) => (
-            <div className="item" key={index}>
-              {/* <img src={item.imgUrl} /> */}
+          {order !== undefined &&
+            order.map((item, index) => (
+              <div className="item" key={index}>
 
-              <div className="name">
-                <h4>{item.name}</h4>
-              </div>
-              <div className="price">
-                <h4>{item.price}</h4>
-              </div>
-              <div className="qty">
-                <input
-                  type="number"
-                  min="0"
-                  name={`quantity ${index}`}
-                  value={quantities[index] || 0}
-                  onChange={(e) => counter(e, index, item.price)}
-                />
-                <div className={`two-for-one ${index === 1 && "show"}`}>
-                  {`+ ${twoForOne}`}
+                <div className="name">
+                  <h4>{item.name}</h4>
+                </div>
+                <div className="price">
+                  <h4>{item.price}</h4>
+                </div>
+                <div className="qty">
+                  <input
+                    type="number"
+                    min="0"
+                    name={`quantity ${index}`}
+                    value={quantities[index] || 0}
+                    onChange={(e) => counter(e, index, item.price)}
+                  />
+                  <div className={`two-for-one ${index === 1 && "show"}`}>
+                    {`+ ${twoForOne}`}
+                  </div>
+                </div>
+                <div className="discount">
+                  <h4>{discounts[index]}</h4>
+                </div>
+                <div className="total">
+                  <div>{totals[index] || 0}</div>
                 </div>
               </div>
-              <div className="discount">
-                <h4>{discounts[index]}</h4>
-              </div>
-              <div className="total">
-                <div>{totals[index] || 0}</div>
-              </div>
-            </div>
-          ))}
+            ))}
         </section>
 
         <section className="totals">
-          <div className='summary'>
-            <div >
-              Discounts: &nbsp;{discounts.length && discounts.reduce((a, b) => a + b)}
+          <div className="summary">
+            <div>
+              <div>Discounts: &nbsp;</div>
+              <div>{discounts.length && discounts.reduce((a, b) => a + b)}</div>
             </div>
             <div>
-              Items: {quantities.length && quantities.reduce((a, b) => a + b)}
+              <div>Bonus Items: &nbsp;</div>
+              <div>{twoForOne}</div>
             </div>
-            <div>Bonus Items: &nbsp;{twoForOne}</div>
+            <div>
+              <div>Total Items:</div>
+              <div>
+                {quantities.length && quantities.reduce((a, b) => a + b)}
+              </div>
+            </div>
           </div>
-          <div>
-            <div>Total: &nbsp;{totals.length && totals.reduce((a, b) => a + b)}</div>
+          <div className="total-price">
+            <div>
+              <div>Price: &nbsp;</div>
+              <div>
+                ${totals.length && totals.reduce((a, b) => a + b).toFixed(2)}
+              </div>
+            </div>
+            <div>
+              <div>
+                Shipping for {user && user.address && user.address.zipcode}
+              </div>
+              <div>$16.78</div>
+            </div>
+            <div>
+              <div>Total Price: &nbsp;</div>
+              <div>
+                $
+                {parseInt(
+                  totals.length && totals.reduce((a, b) => a + b).toFixed(2)
+                ) + 16.98}
+              </div>
+            </div>
           </div>
         </section>
       </div>

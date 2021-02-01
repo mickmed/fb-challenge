@@ -18,7 +18,6 @@ export const calcTotals = (prev, qty, id, price) => {
 };
 
 export const calcDiscounts = (prev, qty, id, price) => {
-    console.log(id, qty)
   if (id === 0 && qty > 1) {
     if (qty % 2 === 0) {
       prev[id] = 10 * qty;
@@ -26,24 +25,18 @@ export const calcDiscounts = (prev, qty, id, price) => {
       prev[id] = 10 * (qty - 1);
     }
   } else if (id === 1) {
-     
     if (qty % 2 === 0) {
-    
-
-      prev[id] = ( qty/ 2) * price;
+      prev[id] = (qty / 2) * price;
     } else {
-      prev[id] = ((qty-1) / 2) * price;
+      prev[id] = ((qty - 1) / 2) * price;
     }
   }
   return [...prev];
 };
 
 export const calcTwoForOne = (prev, qty) => {
-  console.log(prev, qty);
   if (qty > 1) {
     if (qty % 2 === 0) {
-      
-
       prev = qty / 2;
     } else {
       prev = (qty - 1) / 2;
@@ -51,6 +44,5 @@ export const calcTwoForOne = (prev, qty) => {
   } else {
     prev = 0;
   }
-  console.log(prev);
   return prev;
 };

@@ -2,9 +2,9 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+	z-index: 1;
 	background: sandybrown;
 	min-height: 7vh;
-	z-index:1;
 }
 nav .selected {
 	color: "red";
@@ -12,4 +12,7 @@ nav .selected {
 }
 a {
 	text-decoration: none;
+}
+a:hover {
+	transform: scale(1.1);
 }

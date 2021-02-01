@@ -6,7 +6,18 @@ Welcome to the FB-Challenge
 - due 2/1 @ 9am
 - delivered 2/1 @ 9am
 
-#### Component Heirarchy
+
+### Summary
+- The user can choose between two preset scenarios indicating different quantities for each item. They are represented as ```scenario1``` and ```scenario2```. Each input box is preloaded respectively, and the quantity of each item can be changed accordingly. If changes are made the  ```two for 100``` and ```buy 2 get 1 free``` features are automatically implemented. The corresponding calculations are made for ```discounts```, ```totals```, and the ```order total```. Please see the deployed version below.
+
+### Deployed 
+- [Live Example](https://fb-challenge.netlify.app/)
+
+
+### Component Heirarchy
+
+<details>
+<summary>Component Hierarchy</summary>
 
 ```
             App
@@ -14,18 +25,18 @@ Welcome to the FB-Challenge
 Shipping  Billing  OrderReview
 ```
 
+</details>
 
-#### Deployed 
-- [Live Example](https://fb-challenge.netlify.app/)
 
-#### Summary
-- The most enjoyable part of the challenge was calculating the discounts and totals for the 'A' and 'B' items, i,e., ```buy 2 for 100``` and ```buy two get one free```. The code for this can be seen in the [Helpers/index.js file](/src/Components/Helpers/index.js).
 
-<br>
+### Notes
+- The most enjoyable part of the challenge was calculating the discounts and totals for the 'A' and 'B' items, i,e., ```buy 2 for 100``` and ```buy 2 get 1 free```. The code for this can be seen in the [Helpers/index.js](/src/Components/Helpers/index.js) and the [Order-Review.jsx](/src/Components/OrderReview/OrderReview.jsx) files.
+
+
 #### Challenge Directions
 
 <details>
-<summary>Instructions Here</summary>
+<summary>Instructions</summary>
 
 ```
 Create an order review page with two headers
@@ -61,3 +72,4 @@ Assume items in the order are
 
 ```
 </details>
+
