@@ -165,4 +165,7 @@ input {
     font-size: 0.9em;
     height: 12vh;
   }
+  input{
+	  width:5vw;
+  }
 }
