@@ -67,7 +67,7 @@ function App() {
       <Nav yAxis={yAxis} headerHeight={headerHeight} />
       <Layout>
         <Route exact path="/">
-          <Shipping user={user} />
+          <OrderReview order={order} user={user} />
         </Route>
         <Route path="/shipping">
           <Shipping user={user} />
